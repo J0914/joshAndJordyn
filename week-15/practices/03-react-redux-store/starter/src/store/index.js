@@ -1,4 +1,14 @@
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
+import fruitReducer from './fruitReducer';
+
+
+
+
+  const rootReducer = combineReducers({
+    fruitState: fruitReducer,
+  });
+
+
 
 /* combineReducers turns all the reducer functions into one big reducer function
  */
@@ -21,6 +31,7 @@ to work with your components. you are creating one big reducer */
 /* window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({ trace: true }) along with the
 chrome extension for redux devtools will set up your Redux DevTools in the
 browser */
+let enhancer
 if (process.env.NODE_ENV !== 'production') {
   const logger = require('redux-logger').default;
   const composeEnhancers =
