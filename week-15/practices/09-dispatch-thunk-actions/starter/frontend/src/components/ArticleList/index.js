@@ -4,7 +4,8 @@ import { Route, Switch } from "react-router-dom";
 
 import SingleArticle from "../SingleArticle";
 import ArticleDetail from "../ArticleDetail";
-import { getArticles } from '../../store/articleReducer';
+import { fetchArticles } from '../../store/articleReducer';
+
 
 const ArticleList = () => {
   const dispatch = useDispatch();
@@ -12,7 +13,7 @@ const ArticleList = () => {
   const articles = useSelector((state) => state.articleState.entries);
 
   useEffect(() => {
-    dispatch(getArticles());
+    dispatch(fetchArticles());
   }, [dispatch]);
 
   return (
